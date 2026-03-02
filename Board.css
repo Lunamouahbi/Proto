@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;      /* black */
+  color: #39ff14;        /* neon green */
+  font-family: "Fredoka", "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
+}
+
+a {
+  color: #39ff14;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: make headings pop */
+h1, h2, h3 {
+  letter-spacing: 1px;
+}
