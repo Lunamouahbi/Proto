@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidate Board</title>
+  <link rel="stylesheet" href="Board.css" />
+</head>
+
+<body>
+  <header>
+    <h1 class="title">DEar BoArd</h1>
+  </header>
+
+  <main>
+    <p class="title2" id="questionText"></p>
+
+    <input id="answer" type="text" placeholder="Type your answer..." class="answerBox" />
+    <button id="unlockBtn" class="unlockBtn">Submit</button>
+
+    <p id="message" class="message"></p>
+
+    <!-- Hidden paragraph (your letter) -->
+    <p id="letter" class="title3" style="display:none;">
+      Bla bla
+    </p>
+  </main>
+
+  <div class="title5">
+    <nav>
+      <a href="index.html">go back</a>
+    </nav>
+  </div>
+
+  <script>
+    // Edit your 5 questions + answers here
+    const quiz = [
+      { q: "Answer this to unlock the letter:<br>1) Where did I grow up?", a: "rotterdam" },
+      { q: "2) What is my favorite color?", a: "green" },
+      { q: "3) What is my favorite animal?", a: "cat" },
+      { q: "4) What month is my birthday?", a: "may" },
+      { q: "5) What is my dream job?", a: "doctor" }
+    ];
+
+    let current = 0;
+
+    const questionText = document.getElementById("questionText");
+    const answerInput = document.getElementById("answer");
+    const unlockBtn = document.getElementById("unlockBtn");
+    const letter = document.getElementById("letter");
+    const message = document.getElementById("message");
+
+    function showQuestion() {
+      questionText.innerHTML = quiz[current].q;
+      answerInput.value = "";
+      answerInput.focus();
+      message.textContent = "";
+    }
+
+    function tryAnswer() {
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const correctAnswer = quiz[current].a.trim().toLowerCase();
+
+      if (userAnswer === correctAnswer) {
+        message.textContent = "✅ Correct! Next question 👀";
+        current++;
+
+        if (current === quiz.length) {
+          // Unlocked!
+          letter.style.display = "block";
+          questionText.innerHTML = "🎉 You unlocked the letter!";
+          answerInput.style.display = "none";
+          unlockBtn.style.display = "none";
+          message.textContent = "✅ Queen behavior. You did it.";
+        } else {
+          setTimeout(showQuestion, 600);
+        }
+      } else {
+        message.textContent = "❌ Nope. Try again bestie.";
+      }
+    }
+
+    // Click button
+    unlockBtn.addEventListener("click", tryAnswer);
+
+    // Press Enter in the input
+    answerInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        tryAnswer();
+      }
+    });
+
+    // Start the quiz
+    showQuestion();
+  </script>
+</body>
+</html>

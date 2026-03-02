@@ -1,23 +1,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
 
-html, body {
+body{
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #39ff14;
+  font-family: "Fredoka","Comic Sans MS","Trebuchet MS",Arial,sans-serif;
+  position: relative; /* IMPORTANT: makes absolute positioning work nicely */
+    a:link,
+a:visited,
+a:hover,
+a:active{
+  color: #39ff14;
+}
+}
+
+/* Remove default spacing from layout blocks */
+header, nav, main, footer{
   margin: 0;
   padding: 0;
-  background: #000;      /* black */
-  color: #39ff14;        /* neon green */
-  font-family: "Fredoka", "Comic Sans MS", "Trebuchet MS", Arial, sans-serif;
 }
 
-a {
+/* 1) H1 - name */
+.title{
+  position: absolute;
+  top: 30px;
+  left: 350px;
+
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+/* 2) H2 - question */
+.title2{
+  position: absolute;
+  top: 140px;
+  left: 300px;
+
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* 3) Paragraph */
+.title3{
+  position: absolute;
+  top: 220px;
+  left: 200px;
+
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* 4) Footer text */
+.title4{
+  position: absolute;
+  bottom: 20px;
+  left: 400px;
+
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.title5{
+  position: absolute;
+  bottom: 200px;
+  left: 300px;
+
+    color: #39ff14;
+  margin: 0;
+  font-size: 2rem;
+  opacity: 0.8;
+
+}
+
+/* Image block */
+.image1{
+  position: absolute;
+  top: 300px;
+  right: 60px; /* put it on the right side */
+}
+
+.image2{
+  position: absolute;
+  top: 440px;
+  left: 30px; /* put it on the right side */
+}
+
+
+
+.image1 img{
+  width: 260px;   /* change size */
+  height: auto;
+}
+
+.answerBox{
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #39ff14;
+  background: #000;
   color: #39ff14;
-  text-decoration: none;
+  outline: none;
+  position: absolute;
+  top: 500px;   /* move up/down */
+  left: 400px;   /* move left/right */
 }
 
-a:hover {
-  text-decoration: underline;
+.unlockBtn{
+  padding: 10px 14px;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 2px solid #39ff14;
+  background: transparent;
+  color: #39ff14;
+  cursor: pointer;
+  position: absolute;
+  top: 500px;   /* move up/down */
+  left: 300px;   /* move left/right */
 }
 
-/* Optional: make headings pop */
-h1, h2, h3 {
-  letter-spacing: 1px;
+.unlockBtn:hover{
+  transform: scale(1.03);
+}
+
+.message{
+   position: absolute;
+  bottom: 100px;
+  left: 400px;
 }
