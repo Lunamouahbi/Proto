@@ -5,35 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Candidate Board</title>
   <link rel="stylesheet" href="Board.css" />
-</head>4
+</head>
 
 <body>
-  <header>
-    <h1 class="title">DEar BoArd</h1>
-  </header>
+  <div class="page">
 
-  <main>
-    <p class="title2" id="questionText"></p>
+    <header>
+      <h1 class="title">DEar BoArd</h1>
+    </header>
 
-    <input id="answer" type="text" placeholder="Type your answer..." class="answerBox" />
-    <button id="unlockBtn" class="unlockBtn">Submit</button>
+    <main>
+      <p class="title2" id="questionText"></p>
 
-    <p id="message" class="message"></p>
+      <div class="quizRow">
+        <input id="answer" type="text" placeholder="Type your answer..." class="answerBox" />
+        <button id="unlockBtn" class="unlockBtn">Submit</button>
+      </div>
 
-    <!-- Hidden paragraph (your letter) -->
-    <p id="letter" class="title3" style="display:none;">
-      Bla bla
-    </p>
-  </main>
+      <p id="message" class="message"></p>
 
-  <div class="title5">
-    <nav>
-      <a href="index.html">go back</a>
-    </nav>
+      <p id="letter" class="title3" style="display:none;">
+        Bla bla
+      </p>
+
+      <div class="title5">
+        <nav>
+          <a href="index.html">go back</a>
+        </nav>
+      </div>
+    </main>
+
+    <footer>
+      <p class="title4">© 20bla bla bla</p>
+    </footer>
+
   </div>
 
   <script>
-    // Edit your 5 questions + answers here
     const quiz = [
       { q: "Answer this to unlock the letter:<br>1) how many minions are in the minion movie?", a: "10400" },
       { q: "2) (gay + Bisexual - Senno) * Pinquins = ?", a: "gay" },
@@ -66,7 +74,6 @@
         current++;
 
         if (current === quiz.length) {
-          // Unlocked!
           letter.style.display = "block";
           questionText.innerHTML = "🎉 You unlocked the letter!";
           answerInput.style.display = "none";
@@ -80,10 +87,8 @@
       }
     }
 
-    // Click button
     unlockBtn.addEventListener("click", tryAnswer);
 
-    // Press Enter in the input
     answerInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         e.preventDefault();
@@ -91,7 +96,6 @@
       }
     });
 
-    // Start the quiz
     showQuestion();
   </script>
 </body>

@@ -1,123 +1,128 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
 
+:root{
+  --neon: #39ff14;
+  --bg: #000;
+}
+
+*{ box-sizing: border-box; }
+
 body{
   margin: 0;
   min-height: 100vh;
-  background: #000;
-  color: #39ff14;
+  background: var(--bg);
+  color: var(--neon);
   font-family: "Fredoka","Comic Sans MS","Trebuchet MS",Arial,sans-serif;
-  position: relative; /* IMPORTANT: makes absolute positioning work nicely */
-    a:link,
+}
+
+/* Links */
+a:link,
 a:visited,
 a:hover,
 a:active{
-  color: #39ff14;
-}
-}
-
-/* Remove default spacing from layout blocks */
-header, nav, main, footer{
-  margin: 0;
-  padding: 0;
+  color: var(--neon);
+  text-decoration: none;
 }
 
-/* 1) H1 - name */
+/* Main layout wrapper */
+.page{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px;
+}
+
+/* Centered header/title */
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+}
+
 .title{
-  position: absolute;
-  top: 30px;
-  left: 350px;
-
   margin: 0;
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 600;
+  text-align: center;
 }
 
-/* 2) H2 - question */
-.title2{
-  position: absolute;
-  top: 140px;
-  left: 300px;
-
-  margin: 0;
-  font-size: 2rem;
-}
-
-/* 3) Paragraph */
-.title3{
-  position: absolute;
-  top: 220px;
-  left: 200px;
-
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-/* 4) Footer text */
-.title4{
-  position: absolute;
-  bottom: 20px;
-  left: 400px;
-
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.8;
-}
-
+/* Nav */
 .title5{
-  position: absolute;
-  bottom: 200px;
-  left: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.2rem, 4.5vw, 2rem);
+  opacity: 0.9;
+}
 
-    color: #39ff14;
+/* Main content */
+main{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  text-align: center;
+}
+
+.title2{
   margin: 0;
-  font-size: 2rem;
-  opacity: 0.8;
-
+  font-size: clamp(1.4rem, 5vw, 2rem);
 }
 
-/* Image block */
-.image1{
-  position: absolute;
-  top: 300px;
-  right: 60px; /* put it on the right side */
+.title3{
+  margin: 0 auto;
+  font-size: clamp(1rem, 3.6vw, 1.2rem);
+  line-height: 1.5;
+  max-width: 60ch;
 }
 
-.image2{
-  position: absolute;
-  top: 440px;
-  left: 30px; /* put it on the right side */
+/* Images responsive: stack nicely on mobile */
+.images{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  justify-items: center;
+  align-items: start;
 }
 
-
-
-.image1 img{
-  width: 260px;   /* change size */
+.images img{
+  width: 100%;
+  max-width: 280px;
   height: auto;
+  border-radius: 14px;
+  border: 2px solid rgba(57,255,20,0.35);
+}
+
+/* Quiz input area */
+.quizRow{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
 }
 
 .answerBox{
   padding: 10px 12px;
   border-radius: 10px;
-  border: 2px solid #39ff14;
-  background: #000;
-  color: #39ff14;
+  border: 2px solid var(--neon);
+  background: var(--bg);
+  color: var(--neon);
   outline: none;
-  position: absolute;
-  top: 500px;   /* move up/down */
-  left: 400px;   /* move left/right */
+  width: min(320px, 90vw);
 }
 
 .unlockBtn{
   padding: 10px 14px;
-  margin-left: 10px;
   border-radius: 10px;
-  border: 2px solid #39ff14;
+  border: 2px solid var(--neon);
   background: transparent;
-  color: #39ff14;
+  color: var(--neon);
   cursor: pointer;
-  position: absolute;
-  top: 500px;   /* move up/down */
-  left: 300px;   /* move left/right */
 }
 
 .unlockBtn:hover{
@@ -125,7 +130,27 @@ header, nav, main, footer{
 }
 
 .message{
-   position: absolute;
-  bottom: 100px;
-  left: 400px;
+  margin: 6px 0 0;
+  font-size: 1rem;
+}
+
+/* Footer */
+footer{
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 6px;
+}
+
+.title4{
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+/* Mobile: stack images */
+@media (max-width: 600px){
+  .images{
+    grid-template-columns: 1fr;
+  }
 }
